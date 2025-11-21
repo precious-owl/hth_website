@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <link rel="icon" type="image/svg+xml" href="./image/favicon.ico" />
+  <title>Ho Teaching Hospital</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#008100",
+            secondary: "#FFD700",
+            primary1: "#13ec5b",
+            "accent-yellow": "#FFD700",
+            "text-dark": "#333333",
+            "background-light": "#FFFFFF",
+            "background-dark": "#102216",
+            "text-light": "#333333",
+            "text-dark": "#F5F5F5",
+            "muted-light": "#f5f5f5",
+            "muted-dark": "#AAAAAA",
+            "lime-green":"#13ec5b",
+            "muted-dark": "#1A2B20",
+            "border-light": "#F5F5F5",
+            "border-dark": "#2a3b31",
+            "gray-light": "#F5F5F5",
+            "section-dark": "#1a2c20",
+            "text-muted-light": "#61896f",
+            "text-muted-dark": "#a2b5a9",
+          },
+          fontFamily: {
+            display: ["Lexend", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+      <div
+        class="flex items-center justify-between whitespace-nowrap border-b-0 border-solid border-muted-light dark:border-muted-dark/20 px-4 sm:px-8 md:px-10 py-3">
+        <div class="flex items-center gap-4">
+          <div class="size-8 text-primary">
+            <a href="index.html"><img src="./asserts/images/hthlogo.png" alt="" /></a>
+          </div>
+          <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+            <a href="index.html">Ho Teaching Hospital</a>
+          </h2>
+        </div>
+        <div class="hidden lg:flex flex-1 justify-end gap-8">
+          <nav class="flex items-center gap-9">
+            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+              href="index.html">Home</a>
+            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Services</a>
+            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Departments</a>
+            <!-- <a class="text-primary text-sm font-bold leading-normal" href="#">About Us</a> -->
+            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Medical
+              Tourism</a>
+            <a class="text-primary text-sm font-bold leading-normal" href="about.html">About Us</a>
+            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="contact.html">Contact</a>
+          </nav>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+            <span class="truncate">Book Appointment</span>
+          </button>
+        </div>
+        <div class="lg:hidden">
+          <button class="p-2 rounded-lg hover:bg-muted-light dark:hover:bg-muted-dark">
+            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-5">
+          <div class="@container">
+            <div
+              class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center"
+              data-alt="A welcoming group of staff members at Ho Teaching Hospital"
+              style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnTbeYG_uDkKWT9DvH53IfF9N8LaIyLhLS1lBleNuAAKg44qOrdt-3c5Q_TEjpVtuKhRZUbanAWsQFf3aWDpuZkT8COKZ2kjbrvMcPniGqxynlb-HS-EIu_Jnn-gcfx_agX2KCLQIfdBmZK2oguatbvdZhWBLLBT78yJcSN2JL-239Ph6imA50Mj48bLR41018IvIhqrUjc4wqugaA4KpVkm4Krkq7xeO30hVT2sNmAFa_rSB-GJdubrM7kNb6pLotqcUihLnHXDk");'>
+              <div class="flex flex-col gap-2">
+                <h1
+                  class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                  About Ho Teaching Hospital</h1>
+                <h2
+                  class="text-white text-base font-normal leading-normal @[480px]:text-lg @[480px]:font-normal @[480px]:leading-normal">
+                  "Save a Life, Save the World."</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 md:py-16">
+          <div class="mx-auto max-w-6xl flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+              <h2 class="text-[28px] md:text-[32px] font-bold leading-tight tracking-[-0.015em] mb-4">Ho
+                Teaching Hospital (HTH)</h2>
+              <p class="text-text-muted-light dark:text-text-muted-dark text-base font-normal leading-relaxed mb-6">
+                Ho Teaching Hospital (HTH) is the primary referral hospital in the Volta Region of
+                Ghana. Our mission is to provide advanced clinical health services, support the training
+                of undergraduate and postgraduate medical and other healthcare professionals, and
+                undertake research into health issues for the purpose of improving health outcomes. As a
+                strategic partner, we are committed to excellence in patient care and medical education.
+                HTH has eight (8) Sub-Budget Management Centers (Sub-BMCs) and sixteen (16)
+                Directorates.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-muted-light dark:bg-muted-dark p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2">Our Motto</h3>
+                  <p class="text-text-muted-light dark:text-text-muted-dark">Save a Life, Save the
+                    World.</p>
+                </div>
+                <div class="bg-muted-light dark:bg-muted-dark p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2">Referral Center</h3>
+                  <p class="text-text-muted-light dark:text-text-muted-dark">The leading tertiary care
+                    facility for the Volta Region and beyond.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex-1 w-full h-80 md:h-auto md:aspect-square bg-cover bg-center rounded-xl"
+              data-alt="Modern facade of Ho Teaching Hospital"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClxVlDz0kOp4RIA05KHH2kx5O_yg9KEdoG3SZYBVWcbbDpdPmz1_yMM0ZcvuJrx9SFjx81sd7BWLOwmzGJxKWW-eY5uP8OluONCeyGFqhCUGawj1LfDknNXr3q1T7-6r7Vgb-kFGTvYdD1UlqZShS1tPCNmQeDbYOE_b1uADVjQldw1e51PDVqPWv9XQ6sGkQvnbGhzsgRGvGrSTXi8A8KRTSzMu-6R_wQSaBVWFKksH87qJL9YdxnBdWvRcSZVqmm5ZpoJnidqbY");'>
+            </div>
+          </div>
+        </section>
+        <section class="w-full bg-muted-light dark:bg-muted-dark px-4 sm:px-8 md:px-10 lg:px-20 py-10 md:py-16">
+          <div class="mx-auto max-w-6xl">
+            <h2 class="text-[28px] md:text-[32px] font-bold leading-tight tracking-[-0.015em] mb-8 text-center">
+              Brief History of Ho Teaching Hospital</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div class="flex flex-col gap-2">
+                <span class="font-bold text-primary text-2xl">1998</span>
+                <h3 class="font-bold text-lg">Construction Begins</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm">Construction of the
+                  facility, then known as the Volta Regional Hospital, commenced with funding from the
+                  British Government.</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-bold text-primary text-2xl">2000</span>
+                <h3 class="font-bold text-lg">Commissioning</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm">The hospital was
+                  commissioned in December 2000 and began its operations, quickly establishing itself
+                  as a key healthcare provider.</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-bold text-primary text-2xl">2019</span>
+                <h3 class="font-bold text-lg">Teaching Hospital Status</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm">Designated as a
+                  Teaching Hospital in April 2019 by the Ministry of Health, enhancing its role in
+                  medical education and research.</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="font-bold text-primary text-2xl">Present</span>
+                <h3 class="font-bold text-lg">Continuous Expansion</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm">Ongoing expansion of
+                  services and infrastructure to meet the growing demands for specialized healthcare
+                  in the region.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 md:py-16">
+          <div class="mx-auto max-w-6xl">
+            <div class="text-center mb-10">
+              <h2 class="text-[28px] md:text-[32px] font-bold leading-tight tracking-[-0.015em]">
+                Organisational Culture</h2>
+              <p class="text-text-muted-light dark:text-text-muted-dark mt-2">Our guiding principles and
+                strategic direction.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+              <div class="bg-muted-light dark:bg-muted-dark p-6 rounded-lg">
+                <h3 class="text-xl font-bold mb-3">Our Vision</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark">To be a leading tertiary
+                  healthcare provider, renowned for clinical excellence, research, and medical
+                  education in Ghana.</p>
+              </div>
+              <div class="bg-muted-light dark:bg-muted-dark p-6 rounded-lg">
+                <h3 class="text-xl font-bold mb-3">Our Mission</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark">To provide quality and
+                  accessible specialized healthcare, train high-caliber health professionals, and
+                  conduct innovative research to meet the health needs of our clients.</p>
+              </div>
+            </div>
+            <div class="bg-muted-light dark:bg-muted-dark p-6 rounded-lg mb-10">
+              <h3 class="text-xl font-bold mb-4 text-center">Our Core Values</h3>
+              <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+                <div class="flex flex-col items-center"><span class="font-semibold">Commitment</span>
+                </div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Accountability</span></div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Dedication</span>
+                </div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Integrity</span>
+                </div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Professionalism</span></div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Innovation</span>
+                </div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Team Work</span>
+                </div>
+                <div class="flex flex-col items-center"><span class="font-semibold">Safe Care</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-center">Goals &amp; Broad Strategic Objectives</h3>
+              <ul class="list-disc list-inside space-y-2 text-text-muted-light dark:text-text-muted-dark">
+                <li>Enhance clinical service quality and safety to meet international standards.</li>
+                <li>Strengthen collaboration with training and research institutions.</li>
+                <li>Improve operational and financial efficiency through prudent management.</li>
+                <li>Develop and maintain our infrastructure and equipment to support service delivery.
+                </li>
+                <li>Strengthen corporate governance and institutional management processes.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="w-full bg-lime-green/25 dark:bg-muted-dark px-4 sm:px-8 md:px-10 lg:px-20 py-10 md:py-16">
+          <div class="mx-auto max-w-6xl">
+            <div class="text-center mb-10">
+              <h2 class="text-[28px] md:text-[32px] font-bold leading-tight tracking-[-0.015em]">Our
+                Services</h2>
+              <p class="text-text-muted-light dark:text-text-muted-dark mt-2">Comprehensive care across a
+                wide range of specialties.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">emergency</span><span class="font-medium">Emergency
+                  Care</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">cardiology</span><span
+                  class="font-medium">Cardiology</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">oncology</span><span
+                  class="font-medium">Oncology</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">neurology</span><span
+                  class="font-medium">Neurology</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">child_care</span><span
+                  class="font-medium">Pediatrics</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">pregnant_woman</span><span
+                  class="font-medium">Obstetrics &amp; Gyn</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">ophthalmology</span><span
+                  class="font-medium">Ophthalmology</span>
+              </div>
+              <div class="bg-background-light dark:bg-background-dark p-4 rounded-lg shadow-sm flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">orthopedics</span><span
+                  class="font-medium">Orthopedics</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 md:py-16">
+          <div class="mx-auto max-w-6xl">
+            <div class="text-center mb-10">
+              <h2 class="text-[28px] md:text-[32px] font-bold leading-tight tracking-[-0.015em]">Our
+                Leadership</h2>
+              <p class="text-text-muted-light dark:text-text-muted-dark mt-2">Meet the teams guiding our
+                hospital to success.</p>
+            </div>
+            <div class="mb-12">
+              <h3 class="text-2xl font-bold mb-6 text-center">Executive Management Team</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Dr. Evelyn Addo"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHjpeh9scteP9zxORqlYIv9C6M82nsFM3sTG7biIm-0ptkuBFPh3CBKBkgVbt0FoOqSqLQLHC8m_jHm9IFKKUZ29hjQshTB_cBwdgGfDOu16yEKjTI0Nh55HnjH4thT8a7Qmh9StgoafD2A-Oi8hRvXp3lz5Ay2gjWIFjz4AfNB-iD_Cgj6TYYJddhwR1Gl40Yn67GxsOCGHFCCwgA2mKHqAoK4SfvTE6zAg4E3cmfxFh5_chMzGBx1KhB9s7HhHU6KB9hQQeU8Nc")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Dr. (Med) Hintermann K.K. Mbroh  </h4>
+                  <p class="text-primary font-medium">Chief Executive Officer</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Dr. Samuel Osei"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4UTV63avRU-Ld32BJU9eBQvK31wyxrHpy_jachQ6-HLQuJrCl2D7MTd0Npr6Tf-560aTnmKkBU-QDD38LeKnMPq2q4KLSU3x4C8n95cEAgdhig3ZW8zCNRtKSa2BRgPlWord8C-B6J7SWOwIdPmYdm_lFSdVTnSd3PrSPigQLHNImo1L17tI-eJKQv2GYjYha0jxXCKep403cc9L3M3T-LbehDyPSGxkaZR-FrNmWoAqHBj72qhbqrrcj1iErlfG9QqQKh69pp9k")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Dr. (Med) Emmanuel Kasu</h4>
+                  <p class="text-primary font-medium">Director of Medical Services</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Mrs. Grace Mensah"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVSLsJB5KHA37pX8NGugztQaXltfy3DaqK3KglS4KaWBPEnTX5NVYCQG-NTnRfRcyzdCjgCjkRUP-m1ju9ckKTTtam44xpxBCW5lXbbgth8kGpWGFvjVrP4_os7K20E5KJH2ajsf5_ZxFYtIpJgyZojkAEVPT6jIg3WjxccTtG0FQ5u16THwekUoQMsqWI4u0Qnf8yK-cfRh0DwK8XAWUS3nYKD2S0dE5ZpfhV57wQmwShBMsG7ASh7-wvSWXHpW5EFjrD0X8SSxg")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mr. George Tetteh 	</h4>
+                  <p class="text-primary font-medium">Director of Administration</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Mr. David Asante"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhp4HfWqA4rOAObsOlLteLGt0EfCAmVj0cskRdkz46bQDIXzpvsIoy-L01bDDccd3bUuiFtNM_JFMOh1kuh9qtU7xraOpcqMoenU1VSKvTb7_ybDPOKt1s72JCWSKIJE-p1hO9gjzH22IjwzPMO7xc85bqBzYs9scnAJKXHAI50QsOY6fbKts-RucEuiF4jeg9B8Sr3DcrBlnS3zBbhY7WJaVhl3XR1wLzCGhC0Euo6jIIlnBieIhDJsC_669-oENBo2NLOcyn3V0")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mr. Kwasi Dzramedo	</h4>
+                  <p class="text-primary font-medium">Director of Finance</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Mr. Bright K. Anku"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4UTV63avRU-Ld32BJU9eBQvK31wyxrHpy_jachQ6-HLQuJrCl2D7MTd0Npr6Tf-560aTnmKkBU-QDD38LeKnMPq2q4KLSU3x4C8n95cEAgdhig3ZW8zCNRtKSa2BRgPlWord8C-B6J7SWOwIdPmYdm_lFSdVTnSd3PrSPigQLHNImo1L17tI-eJKQv2GYjYha0jxXCKep403cc9L3M3T-LbehDyPSGxkaZR-FrNmWoAqHBj72qhbqrrcj1iErlfG9QqQKh69pp9k")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Dr. Isaac Wemegah </h4>
+                  <p class="text-primary font-medium">Director of Allied Health Services</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Pharm. Dr. Richard K. Adjei"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHjpeh9scteP9zxORqlYIv9C6M82nsFM3sTG7biIm-0ptkuBFPh3CBKBkgVbt0FoOqSqLQLHC8m_jHm9IFKKUZ29hjQshTB_cBwdgGfDOu16yEKjTI0Nh55HnjH4thT8a7Qmh9StgoafD2A-Oi8hRvXp3lz5Ay2gjWIFjz4AfNB-iD_Cgj6TYYJddhwR1Gl40Yn67GxsOCGHFCCwgA2mKHqAoK4SfvTE6zAg4E3cmfxFh5_chMzGBx1KhB9s7HhHU6KB9hQQeU8Nc")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mad. Stella Amenuveve</h4>
+                  <p class="text-primary font-medium">Director of Nursing and Midwifery Services</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Dr. Lord Mensah"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhp4HfWqA4rOAObsOlLteLGt0EfCAmVj0cskRdkz46bQDIXzpvsIoy-L01bDDccd3bUuiFtNM_JFMOh1kuh9qtU7xraOpcqMoenU1VSKvTb7_ybDPOKt1s72JCWSKIJE-p1hO9gjzH22IjwzPMO7xc85bqBzYs9scnAJKXHAI50QsOY6fbKts-RucEuiF4jeg9B8Sr3DcrBlnS3zBbhY7WJaVhl3XR1wLzCGhC0Euo6jIIlnBieIhDJsC_669-oENBo2NLOcyn3V0")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mr. Edmund Tsogbey 	</h4>
+                  <p class="text-primary font-medium">Director of Human Resources</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Mr. Amos K. Dzah"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4UTV63avRU-Ld32BJU9eBQvK31wyxrHpy_jachQ6-HLQuJrCl2D7MTd0Npr6Tf-560aTnmKkBU-QDD38LeKnMPq2q4KLSU3x4C8n95cEAgdhig3ZW8zCNRtKSa2BRgPlWord8C-B6J7SWOwIdPmYdm_lFSdVTnSd3PrSPigQLHNImo1L17tI-eJKQv2GYjYha0jxXCKep403cc9L3M3T-LbehDyPSGxkaZR-FrNmWoAqHBj72qhbqrrcj1iErlfG9QqQKh69pp9k")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mr. Wisdom Adzraku </h4>
+                  <p class="text-primary font-medium">Director of Pharmacy (Ag)</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-40 h-40 bg-cover bg-center rounded-full mb-4 ring-2 ring-primary/20"
+                    data-alt="Professional headshot of Ms. Sarah M. Boateng"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVSLsJB5KHA37pX8NGugztQaXltfy3DaqK3KglS4KaWBPEnTX5NVYCQG-NTnRfRcyzdCjgCjkRUP-m1ju9ckKTTtam44xpxBCW5lXbbgth8kGpWGFvjVrP4_os7K20E5KJH2ajsf5_ZxFYtIpJgyZojkAEVPT6jIg3WjxccTtG0FQ5u16THwekUoQMsqWI4u0Qnf8yK-cfRh0DwK8XAWUS3nYKD2S0dE5ZpfhV57wQmwShBMsG7ASh7-wvSWXHpW5EFjrD0X8SSxg")'>
+                  </div>
+                  <h4 class="text-lg font-bold">Mr. Edward Boadu Osaebo</h4>
+                  <p class="text-primary font-medium">Head, Internal Audit</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-8 text-center">The Governing Board</h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8 text-center">
+                <div>
+                  <h4 class="font-bold">Dr. Delanyo Yao Tsidi Dovlo</h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Board Chairman
+                  </p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Dr. (Med) Hintermann K. K. Mbroh </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Chief Executive Officer/Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Dr. Fred Bedzrah </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Emil Atsu Agbakpe </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Dr. (Pharm) Divine Azameti 	</h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Mr. Courage  Arnold Foli Kwame-Kumah</h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Prof. Lydia Aziato </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Prof. Yaw Asante Awuku</h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Hon Richmond Edem Kofi Kportosu </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Mr. Prince Rockson </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+                <div>
+                  <h4 class="font-bold">Torgbui Torgbui XI </h4>
+                  <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Member</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-section-dark text-text-light">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="font-bold text-lg mb-4 text-primary1">
+              Ho Teaching Hospital
+            </h3>
+            <p class="text-sm text-gray-300">
+              Ho - Denu Road / Ho - Trafalga<br />Ho Volta Region, Ghana
+            </p>
+            <p class="text-sm text-gray-300 mt-2">P.O. BOX MA 374</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4 text-white">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Find a Doctor</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Our Services</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Patient Portal</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4 text-white">About Us</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Mission &amp; Values</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Leadership</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">Careers</a>
+              </li>
+              <li>
+                <a class="text-gray-300 hover:text-white" href="#">News</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4 text-white">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a aria-label="Facebook" class="text-gray-300 hover:text-white" href="#">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                  </path>
+                </svg>
+              </a>
+              <a aria-label="Twitter" class="text-gray-300 hover:text-white" href="#">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.226-2.068.077.621 1.954 2.422 3.376 4.566 3.415-1.773 1.39-4.012 2.218-6.444 2.218-.42 0-.835-.025-1.243-.073 2.289 1.467 5.013 2.32 7.941 2.32 9.423 0 14.587-7.823 14.587-14.588 0-.221 0-.442-.014-.662a10.437 10.437 0 002.574-2.673z">
+                  </path>
+                </svg>
+              </a>
+              <a aria-label="LinkedIn" class="text-gray-300 hover:text-white" href="#">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+          <p>© 2025 Ho Teaching Hospital. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

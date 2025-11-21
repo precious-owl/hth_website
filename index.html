@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/svg+xml" href="./image/favicon.ico" />
+    <title>Ho Teaching Hospital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#008100",
+                        secondary: "#FFD700",
+                        "primary1": "#13ec5b","accent-yellow": "#FFD700","text-dark": "#333333",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#102216",
+                        "text-light": "#333333",
+                        "text-dark": "#F5F5F5",
+                        "muted-light": "#666666",
+                        "muted-dark": "#AAAAAA",
+                        "border-light": "#F5F5F5",
+                        "border-dark": "#2a3b31",
+                         "gray-light": "#F5F5F5",
+                         "section-dark": "#1a2c20",
+                    },
+                    fontFamily: {
+                        display: ["Lexend", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "0.75rem",
+                        xl: "1rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div
+                    class="flex items-center justify-between whitespace-nowrap border-b-0 border-solid border-muted-light dark:border-muted-dark/20 px-4 sm:px-8 md:px-10 py-3">
+                    <div class="flex items-center gap-4">
+                        <div class="size-8 text-primary">
+                            <a href="index.html"><img src="./asserts/images/hthlogo.png" alt="" /></a>
+                        </div>
+                        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">
+                            <a href="index.html">Ho Teaching Hospital</a>
+                        </h2>
+                    </div>
+                    <div class="hidden lg:flex flex-1 justify-end gap-8">
+                         <nav class="flex items-center gap-9">
+                                <a class="text-primary text-sm font-bold leading-normal" href="index.html">Home</a>
+                            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                href="#">Services</a>
+                            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                href="#">Departments</a>
+                            <!-- <a class="text-primary text-sm font-bold leading-normal" href="#">About Us</a> -->
+                             <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                href="#">Medical Tourism</a>
+                             <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                href="about.html">About us</a>
+                            <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                href="contact.html">Contact</a>
+                        </nav>
+                        <button
+                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity">
+                            <span class="truncate">Book Appointment</span>
+                        </button>
+                    </div>
+                    <div class="lg:hidden">
+                        <button class="p-2 rounded-lg hover:bg-muted-light dark:hover:bg-muted-dark">
+                            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        <main class="flex-grow">
+            <section class="relative">
+                <div class="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-5">
+          <div class="@container">
+            <div
+              class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center"
+              data-alt="A welcoming group of staff members at Ho Teaching Hospital"
+              style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnTbeYG_uDkKWT9DvH53IfF9N8LaIyLhLS1lBleNuAAKg44qOrdt-3c5Q_TEjpVtuKhRZUbanAWsQFf3aWDpuZkT8COKZ2kjbrvMcPniGqxynlb-HS-EIu_Jnn-gcfx_agX2KCLQIfdBmZK2oguatbvdZhWBLLBT78yJcSN2JL-239Ph6imA50Mj48bLR41018IvIhqrUjc4wqugaA4KpVkm4Krkq7xeO30hVT2sNmAFa_rSB-GJdubrM7kNb6pLotqcUihLnHXDk");'>
+              <div class="flex max-w-3xl flex-col gap-4">
+                            <h1
+                                class="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                                Welcome to Ho Teaching Hospital
+                            </h1>
+                            <h2 class="text-lg font-normal leading-normal text-white/90">
+                                Save a Life, Save the World.
+                            </h2>
+                        </div>
+            </div>
+          </div>
+        </div>
+            </section>
+            <section class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
+                <div class="container mx-auto px-4">
+                    <h2 class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
+                        How Can We Help You?
+                    </h2>
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span class="material-symbols-outlined mx-auto text-4xl text-primary">emergency</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">
+                                    Emergency Care
+                                </h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    24/7 critical care
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span class="material-symbols-outlined mx-auto text-4xl text-primary">pregnant_woman</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">Maternity</h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    Mother and child care
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span class="material-symbols-outlined mx-auto text-4xl text-primary">cardiology</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">Cardiology</h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    Expert heart care
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span class="material-symbols-outlined mx-auto text-4xl text-primary">science</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">
+                                    Lab Services
+                                </h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    Accurate diagnostics
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span
+                                class="material-symbols-outlined mx-auto text-4xl text-primary">stethoscope_arrow</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">
+                                    Surgical Unit
+                                </h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    Advanced procedures
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                            <span class="material-symbols-outlined mx-auto text-4xl text-primary">medication</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-base font-bold leading-tight">Pharmacy</h3>
+                                <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                    Prescriptions and advice
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
+                <div class="container mx-auto px-4">
+                    <h2 class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
+                        News &amp; Events
+                    </h2>
+                    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        <div
+                            class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                            <img class="h-56 w-full object-cover"
+                                data-alt="A modern medical research laboratory with scientists working."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-Clps64tfUUvopMEgbdwNQbMBBc1LE9633cleuK0KYD0gcFatic9wcE7NRXfu75T9FvVBKDy2oJHA0ZMyhrS9AYMeOeBjEeXQlMNEH96UEY41GaWROLRrmW83LeVdOWiQ-FCHpdnxrFuJkU45fGFyIcxEki5bOGpBrB3pjOWf_KqlV5zgm3gKjLYmtIvOpWZPIS1me1AceKUBlAzzNETMRtkJP7dkU2AYsWECR_rONYG07sJCRZPgO-KlTNcGTrmLlqO43FbcE0" />
+                            <div class="flex flex-grow flex-col p-6">
+                                <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                    Oct 26, 2023
+                                </p>
+                                <h3 class="mb-3 text-lg font-bold leading-tight">
+                                    New Research Wing Unveiled
+                                </h3>
+                                <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                    Our new state-of-the-art research facility is now open,
+                                    paving the way for groundbreaking medical discoveries.
+                                </p>
+                                <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                            <img class="h-56 w-full object-cover"
+                                data-alt="People of all ages participating in a community health fair outdoors."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
+                            <div class="flex flex-grow flex-col p-6">
+                                <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                    Oct 15, 2023
+                                </p>
+                                <h3 class="mb-3 text-lg font-bold leading-tight">
+                                    Community Health Fair Success
+                                </h3>
+                                <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                    We were thrilled to welcome over 500 community members for a
+                                    day of free health screenings and wellness education.
+                                </p>
+                                <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                            <img class="h-56 w-full object-cover"
+                                data-alt="People of all ages participating in a community health fair outdoors."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
+                            <div class="flex flex-grow flex-col p-6">
+                                <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                    Upcoming Event
+                                </p>
+                                <h3 class="mb-3 text-lg font-bold leading-tight">
+                                    Free Seminar: Healthy Heart
+                                </h3>
+                                <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                    Join Dr. Edem Ame on November 5th to learn about
+                                    preventing heart disease and maintaining cardiovascular
+                                    health.
+                                </p>
+                                <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                   <section class="px-4 md:px-10 lg:px-20 py-10 md:py-20 bg-white dark:bg-background-dark">
+          <div class="mx-auto max-w-7xl">
+            <h2 class="text-3xl font-bold leading-tight tracking-tight text-center mb-12">
+              What Our Patients Say
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                  "The staff at Ho Teaching Hospital were incredibly attentive
+                  and caring. I felt safe and well-cared for throughout my
+                  entire stay. I can't thank them enough."
+                </p>
+                <div class="flex items-center gap-4 mt-2">
+                  <img class="size-12 rounded-full object-cover" data-alt="Portrait of John Doe"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbsjiBvAwq1epOtlMS4STDIMau9W8JA7XSMIzMnESMUu-lJ0VPxahLVhOYApj40LNG-6DtoPi9AIUvTn2Ym5zrkzYuBraJ_zxixLlUdhoZXJGcPiOV1eo9UwGD98xnPtPx52SuZbgFqG30LR46EOeyxNh_n3VGq9UGiIabbW7wAwk3nLYBdVw876sEDKrJYBBd8oAVi5xoyU26_R2NdeyfA_Rwp9O6vHnTe6vyEXy3Rb6rPvQpODvvsBLuEHrhJaJoAvzgJMdK-Q" />
+                  <div>
+                    <p class="font-bold">John Doe</p>
+                    <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                      Cardiology Patient
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                  "My experience with the maternity ward was exceptional. The
+                  nurses were angels, and the facility was top-notch. Highly
+                  recommend to any expecting mother."
+                </p>
+                <div class="flex items-center gap-4 mt-2">
+                  <img class="size-12 rounded-full object-cover" data-alt="Portrait of Jane Smith"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbxBQr9B4-4mP-Qln7mH7D1wcA07x901kxe-g-4ZbknaKN2SZkctXw5Km0ZO_iEkmxs8mMHGVv4zzPWdoYRyu56LfbPdt1lwEixL1EUHzCpk9QEHd2bSGRBB7exp47h44lKiDKr82ftCibpjvUSWQTLRL8p-aKZ09vDQ_YHEH54v4h0qDkn3M6YBdCuf_ZpFYDBB2bYspd3Ew6kKfGtwsav1FinBoCSzY4tBVFzsKobUMgiYs4yr-v4aql2OvVqQzHiNkTEUgqUw" />
+                  <div>
+                    <p class="font-bold">Jane Smith</p>
+                    <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                      Maternity Patient
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                  "The orthopedic surgeon did a fantastic job on my knee. The
+                  recovery process was smooth thanks to the amazing physical
+                  therapy team at Ho Teaching Hospital."
+                </p>
+                <div class="flex items-center gap-4 mt-2">
+                  <img class="size-12 rounded-full object-cover" data-alt="Portrait of Samuel Lee"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuTvTjj7lljzexIyELMxBKorFv8_axGtT5OyX3lxQjxxMmbj7-AqhgMRlHd7gvNo7P6hHSMJn3dH21PHz3x3g1XcjXCSr7iBk2CEWkDhcYuL9w8NOLjo9hNv4tPlMN-1ouCw069V2gY-PdZ8NapqGt09_rFba4ekMgt0YSXOrzdZflLya4aawRVtBgTczyh8fy2nZat-kXJnTFFh1sMwqYEdONky4FbqQkAJLpd4ja6-QLTYZlap0gYRTxshcugN1OtARkat8WPw" />
+                  <div>
+                    <p class="font-bold">Samuel Lee</p>
+                    <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                      Orthopedics Patient
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        </main>
+        <footer class="bg-section-dark text-text-light">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<h3 class="font-bold text-lg mb-4 text-primary1">Ho Teaching Hospital</h3>
+<p class="text-sm text-gray-300">Ho - Denu Road / Ho - Trafalga<br/>Ho Volta Region, Ghana</p>
+<p class="text-sm text-gray-300 mt-2">P.O. BOX MA 374</p>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4 text-white">Quick Links</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-gray-300 hover:text-white" href="#">Find a Doctor</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">Our Services</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">Patient Portal</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4 text-white">About Us</h3>
+<ul class="space-y-2 text-sm">
+<li><a class="text-gray-300 hover:text-white" href="#">Mission &amp; Values</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">Leadership</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">Careers</a></li>
+<li><a class="text-gray-300 hover:text-white" href="#">News</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4 text-white">Follow Us</h3>
+<div class="flex space-x-4">
+<a aria-label="Facebook" class="text-gray-300 hover:text-white" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+</a>
+<a aria-label="Twitter" class="text-gray-300 hover:text-white" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.226-2.068.077.621 1.954 2.422 3.376 4.566 3.415-1.773 1.39-4.012 2.218-6.444 2.218-.42 0-.835-.025-1.243-.073 2.289 1.467 5.013 2.32 7.941 2.32 9.423 0 14.587-7.823 14.587-14.588 0-.221 0-.442-.014-.662a10.437 10.437 0 002.574-2.673z"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="text-gray-300 hover:text-white" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+<p>© 2025 Ho Teaching Hospital. All rights reserved.</p>
+</div>
+</div>
+</footer>
+    </div>
+</body>
+
+</html>

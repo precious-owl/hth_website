@@ -1,810 +1,695 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <link rel="icon" type="image/svg+xml"
-            href="./assets/images/favicon.ico" />
-        <title>Ho Teaching Hospital</title>
-        <script
-            src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-            rel="stylesheet" />
-        <style type="text/tailwindcss">
-      .material-symbols-outlined {
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.ico" />
+    <title>Ho Teaching Hospital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <style type="text/tailwindcss">
+        .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
     </style>
-        <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#008100",
-              secondary: "#FFD700",
-              primary1: "#13ec5b",
-              "accent-yellow": "#FFD700",
-              "text-dark": "#333333",
-              "background-light": "#FFFFFF",
-              "background-dark": "#102216",
-              "text-light": "#333333",
-              "text-dark": "#F5F5F5",
-              "muted-light": "#666666",
-              "muted-dark": "#AAAAAA",
-              "border-light": "#F5F5F5",
-              "border-dark": "#2a3b31",
-              "gray-light": "#F5F5F5",
-              "section-dark": "#1a2c20",
-              "card-light": "#ffffff",
-              "card-dark": "#008100",
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#008100",
+                        secondary: "#FFD700",
+                        primary1: "#13ec5b",
+                        "accent-yellow": "#FFD700",
+                        "text-dark": "#333333",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#102216",
+                        "text-light": "#333333",
+                        "text-dark": "#F5F5F5",
+                        "muted-light": "#666666",
+                        "muted-dark": "#AAAAAA",
+                        "border-light": "#F5F5F5",
+                        "border-dark": "#2a3b31",
+                        "gray-light": "#F5F5F5",
+                        "section-dark": "#1a2c20",
+                        "card-light": "#ffffff",
+                        "card-dark": "#008100",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "0.75rem",
+                        xl: "1rem",
+                        full: "9999px",
+                    },
+                },
             },
-            fontFamily: {
-              display: ["Inter", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem",
-              lg: "0.75rem",
-              xl: "1rem",
-              full: "9999px",
-            },
-          },
-        },
-      };
+        };
     </script>
-        <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Carousel Script
-        const carousel = document.querySelector("[data-carousel]");
-        if (carousel) {
-          const track = carousel.querySelector("[data-carousel-track]");
-          const slides = Array.from(track.children);
-          const nextButton = carousel.querySelector("[data-carousel-next]");
-          const prevButton = carousel.querySelector("[data-carousel-prev]");
-          const dotsNav = carousel.querySelector("[data-carousel-dots]");
-          const dots = dotsNav ? Array.from(dotsNav.children) : [];
-          const slideCount = slides.length;
-          let currentIndex = 0;
-          let autoPlayInterval;
-          const updateCarousel = () => {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            if (dots.length > 0) {
-              dots.forEach((dot, index) => {
-                dot.classList.toggle("opacity-50", index !== currentIndex);
-              });
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Carousel Script
+            const carousel = document.querySelector("[data-carousel]");
+            if (carousel) {
+                const track = carousel.querySelector("[data-carousel-track]");
+                const slides = Array.from(track.children);
+                const nextButton = carousel.querySelector("[data-carousel-next]");
+                const prevButton = carousel.querySelector("[data-carousel-prev]");
+                const dotsNav = carousel.querySelector("[data-carousel-dots]");
+                const dots = dotsNav ? Array.from(dotsNav.children) : [];
+                const slideCount = slides.length;
+                let currentIndex = 0;
+                let autoPlayInterval;
+                const updateCarousel = () => {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    if (dots.length > 0) {
+                        dots.forEach((dot, index) => {
+                            dot.classList.toggle("opacity-50", index !== currentIndex);
+                        });
+                    }
+                };
+                const moveToNextSlide = () => {
+                    currentIndex = (currentIndex + 1) % slideCount;
+                    updateCarousel();
+                };
+                const moveToPrevSlide = () => {
+                    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                    updateCarousel();
+                };
+                const startAutoPlay = () => {
+                    autoPlayInterval = setInterval(moveToNextSlide, 6000);
+                };
+                const stopAutoPlay = () => {
+                    clearInterval(autoPlayInterval);
+                };
+                const resetAutoPlay = () => {
+                    stopAutoPlay();
+                    startAutoPlay();
+                };
+                nextButton.addEventListener("click", () => {
+                    moveToNextSlide();
+                    resetAutoPlay();
+                });
+                prevButton.addEventListener("click", () => {
+                    moveToPrevSlide();
+                    resetAutoPlay();
+                });
+                if (dots.length > 0) {
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener("click", () => {
+                            currentIndex = index;
+                            updateCarousel();
+                            resetAutoPlay();
+                        });
+                    });
+                }
+                startAutoPlay();
             }
-          };
-          const moveToNextSlide = () => {
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateCarousel();
-          };
-          const moveToPrevSlide = () => {
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-            updateCarousel();
-          };
-          const startAutoPlay = () => {
-            autoPlayInterval = setInterval(moveToNextSlide, 6000);
-          };
-          const stopAutoPlay = () => {
-            clearInterval(autoPlayInterval);
-          };
-          const resetAutoPlay = () => {
-            stopAutoPlay();
-            startAutoPlay();
-          };
-          nextButton.addEventListener("click", () => {
-            moveToNextSlide();
-            resetAutoPlay();
-          });
-          prevButton.addEventListener("click", () => {
-            moveToPrevSlide();
-            resetAutoPlay();
-          });
-          if (dots.length > 0) {
-            dots.forEach((dot, index) => {
-              dot.addEventListener("click", () => {
-                currentIndex = index;
-                updateCarousel();
-                resetAutoPlay();
-              });
+            // Hamburger Menu Script
+            const menuButton = document.getElementById("menu-button");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const menuIcon = document.getElementById("menu-icon");
+            const closeIcon = document.getElementById("close-icon");
+            menuButton.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuIcon.classList.toggle("hidden");
+                closeIcon.classList.toggle("hidden");
             });
-          }
-          startAutoPlay();
-        }
-        // Hamburger Menu Script
-        const menuButton = document.getElementById("menu-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const menuIcon = document.getElementById("menu-icon");
-        const closeIcon = document.getElementById("close-icon");
-        menuButton.addEventListener("click", () => {
-          mobileMenu.classList.toggle("hidden");
-          menuIcon.classList.toggle("hidden");
-          closeIcon.classList.toggle("hidden");
         });
-      });
     </script>
-    </head>
+</head>
 
-    <body
-        class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
-        <div class="relative flex min-h-screen w-full flex-col">
-            <div class="layout-container flex h-full grow flex-col">
-                <!--Start of Header/ Navbar -->
-                <header
-                    class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
-                    <div class="container mx-auto px-4">
-                        <div
-                            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark py-3">
-                            <div
-                                class="flex items-center gap-4 text-text-light dark:text-text-dark">
-                                <div class="text-primary size-8">
-                                    <a href="index.html"><img
-                                            src="./assets/images/hthlogo.png"
-                                            alt /></a>
-                                </div>
-                                <h2
-                                    class="text-xl font-bold leading-tight tracking-tight">
-                                    <a href="index.html">Ho Teaching
-                                        Hospital</a>
-                                </h2>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <div class="layout-container flex h-full grow flex-col">
+            <!--Start of Header/ Navbar -->
+            <header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
+                <div class="container mx-auto px-4">
+                    <div
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark py-3">
+                        <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+                            <div class="text-primary size-8">
+                                <a href="index.html"><img src="./assets/images/hthlogo.png" alt /></a>
                             </div>
-                            <div
-                                class="hidden lg:flex flex-1 justify-end gap-8">
-                                <nav class="flex items-center gap-9">
-                                    <a
-                                        class="font-medium font-bold text-sm text-primary leading-normal"
-                                        href="index.html">Home</a>
+                            <h2 class="text-xl font-bold leading-tight tracking-tight">
+                                <a href="index.html">Ho Teaching
+                                    Hospital</a>
+                            </h2>
+                        </div>
+                        <div class="hidden lg:flex flex-1 justify-end gap-8">
+                            <nav class="flex items-center gap-9">
+                                <a class="font-medium font-bold text-sm text-primary leading-normal"
+                                    href="index.html">Home</a>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="#">Services</a>
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="#">Services</a>
 
-                                    <div class="relative group">
-                                        <button
-                                            class="flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary">
-                                            Media
-                                            <span
-                                                class="material-symbols-outlined text-base transition-transform group-hover:rotate-180">expand_more</span>
-                                        </button>
-                                        <div
-                                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 origin-top-right rounded-lg bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
-                                            <div class="py-1">
-                                                <a
-                                                    class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
-                                                    href="#">News & Updates</a>
-                                                <a
-                                                    class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
-                                                    href="#">Medical Tourism</a>
-                                            </div>
+                                <div class="relative group">
+                                    <button
+                                        class="flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary">
+                                        Media
+                                        <span
+                                            class="material-symbols-outlined text-base transition-transform group-hover:rotate-180">expand_more</span>
+                                    </button>
+                                    <div
+                                        class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 origin-top-right rounded-lg bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+                                        <div class="py-1">
+                                            <a class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
+                                                href="#">News & Updates</a>
+                                            <a class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
+                                                href="#">Medical Tourism</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="about.html">About Us</a>
+
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="contact.html">Contact Us</a>
+                            </nav>
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                <span class="truncate">Make an
+                                    Appointment</span>
+                            </button>
+                        </div>
+                        <button class="lg:hidden p-2 -mr-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                            id="menu-button">
+                            <span class="material-symbols-outlined" id="menu-icon">menu</span>
+                            <span class="material-symbols-outlined hidden" id="close-icon">close</span>
+                        </button>
+                    </div>
+                    <div class="lg:hidden hidden" id="mobile-menu">
+                        <div
+                            class="absolute top-full left-0 w-full bg-white dark:bg-background-dark shadow-lg border-t border-border-light dark:border-border-dark">
+                            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                                <a class="text-base text-primary font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="index.html">Home</a>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="#">Services</a>
+
+                                <div class="relative">
+
+                                    <!-- Trigger button (mobile click using peer) -->
+                                    <button
+                                        class="peer flex gap-1 text-base font-medium hover:text-primary dark:hover:text-primary md:group px-2 py-2">
+                                        Media
+                                        <span
+                                            class="material-symbols-outlined text-base transition-transform md:group-hover:rotate-180 peer-focus:rotate-180">
+                                            expand_more
+                                        </span>
+                                    </button>
+
+                                    <!-- Dropdown menu -->
+                                    <div class="
+            absolute md:top-full left-0 md:left-1/2 md:-translate-x-1/2 
+            mt-2 w-full md:w-56 
+            origin-top-right rounded-lg 
+            bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 
+            
+            /* Desktop hover behavior */
+            opacity-0 invisible md:group-hover:opacity-100 md:group-hover:visible 
+
+            /* Mobile click behavior */
+            peer-focus:opacity-100 peer-focus:visible
+
+            transition-all duration-200
+        ">
+                                        <div class="py-1">
+                                            <a class="block px-4 py-3 text-base md:text-sm hover:text-primary transition-colors"
+                                                href="#">
+                                                News & Updates
+                                            </a>
+                                            <a class="block px-4 py-3 text-base md:text-sm hover:text-primary transition-colors"
+                                                href="#">
+                                                Medical Tourism
+                                            </a>
                                         </div>
                                     </div>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="about.html">About Us</a>
-
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="contact.html">Contact Us</a>
-                                </nav>
+                                </div>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="about.html">About Us</a>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="contact.html">Contact Us</a>
                                 <button
-                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                    class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 mt-2 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
                                     <span class="truncate">Make an
                                         Appointment</span>
                                 </button>
                             </div>
-                            <button
-                                class="lg:hidden p-2 -mr-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-                                id="menu-button">
-                                <span class="material-symbols-outlined"
-                                    id="menu-icon">menu</span>
-                                <span class="material-symbols-outlined hidden"
-                                    id="close-icon">close</span>
-                            </button>
                         </div>
-                        <div class="lg:hidden hidden" id="mobile-menu">
-                            <div
-                                class="absolute top-full left-0 w-full bg-white dark:bg-background-dark shadow-lg border-t border-border-light dark:border-border-dark">
-                                <div
-                                    class="container mx-auto px-4 py-4 flex flex-col gap-4">
-                                    <a
-                                        class="text-base text-primary font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="index.html">Home</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="#">Services</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="#">Medical Tourism</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="about.html">About Us</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+            </header>
+            <!--End of Header/ Navbar -->
+
+            <main class="flex-1">
+                <!--Start of Banner/ Carousel Section-->
+                <section class="relative w-full h-[550px] overflow-hidden" data-carousel>
+                    <div class="flex h-full transition-transform duration-500 ease-in-out" data-carousel-track>
+                        <div class="w-full flex-shrink-0 relative">
+                            <img alt class="absolute inset-0 h-full w-full object-cover"
+                                src="./assets/images/FB1.jpg" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
+                            <div class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
+                                <div class="container mx-auto">
+                                    <h1 class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
+                                        Welcome to Ho Teaching Hospital
+                                    </h1>
+                                    <p class="text-lg mb-6 max-w-lg">
+                                        Save a Life, Save the World.
+                                    </p>
                                     <button
-                                        class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 mt-2 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-                                        <span class="truncate">Make an
-                                            Appointment</span>
+                                        class="cursor-pointer rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90 transition-colors">
+                                        <a href="about.html">Learn More</a>
                                     </button>
                                 </div>
                             </div>
                         </div>
+                        <div class="w-full flex-shrink-0 relative">
+                            <img alt class="absolute inset-0 h-full w-full object-cover"
+                                src="./assets/images/FB16.jpg" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
+                            <div class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
+                                <div class="container mx-auto">
+                                    <h1 class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
+                                        Compassionate, Expert Care
+                                    </h1>
+                                    <p class="text-lg mb-6 max-w-lg">
+                                        Our dedicated team is here for you
+                                        every step of the way.
+                                    </p>
+                                    <button
+                                        class="cursor-pointer rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90 transition-colors">
+                                        <a href="about.html#team"> Meet Our
+                                            Team</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex-shrink-0 relative">
+                            <img alt class="absolute inset-0 h-full w-full object-cover"
+                                src="./assets/images/FB15.jpg" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
+                            <div class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
+                                <div class="container mx-auto">
+                                    <h1 class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
+                                        A Community of Wellness
+                                    </h1>
+                                    <p class="text-lg mb-6 max-w-lg">
+                                        Your health and well-being are our
+                                        highest priorities.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex-shrink-0 relative">
+                            <img alt class="absolute inset-0 h-full w-full object-cover"
+                                src="./assets/images/FB2.jpg" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
+                            <div class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
+                                <div class="container mx-auto">
+                                    <h1 class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
+                                        Specialized Pediatric Care
+                                    </h1>
+                                    <p class="text-lg mb-6 max-w-lg">
+                                        Gentle, specialized care for our
+                                        youngest patients.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex-shrink-0 relative">
+                            <img alt class="absolute inset-0 h-full w-full object-cover"
+                                src="./assets/images/FB8.jpg" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
+                            <div class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
+                                <div class="container mx-auto">
+                                    <h1 class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
+                                        Your Partner in Health
+                                    </h1>
+                                    <p class="text-lg mb-6 max-w-lg">
+                                        Serving our community with
+                                        dedication and excellence.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </header>
-                <!--End of Header/ Navbar -->
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex justify-center gap-2"
+                        data-carousel-dots>
+                        <button class="size-2 rounded-full bg-white cursor-pointer"></button>
+                        <button class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
+                        <button class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
+                        <button class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
+                        <button class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
+                    </div>
+                    <button
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/50 transition-colors z-10"
+                        data-carousel-prev>
+                        <span class="material-symbols-outlined">arrow_back_ios_new</span>
+                    </button>
+                    <button
+                        class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/50 transition-colors z-10"
+                        data-carousel-next>
+                        <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    </button>
+                </section>
+                <!--End of Banner/ Carousel Section-->
 
-                <main class="flex-1">
-                    <!--Start of Banner/ Carousel Section-->
-                    <section
-                        class="relative w-full h-[550px] overflow-hidden"
-                        data-carousel>
-                        <div
-                            class="flex h-full transition-transform duration-500 ease-in-out"
-                            data-carousel-track>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img
-                                    alt
-                                    class="absolute inset-0 h-full w-full object-cover"
-                                    src="./assets/images/FB1.jpg" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
-                                <div
-                                    class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
-                                    <div class="container mx-auto">
-                                        <h1
-                                            class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
-                                            Welcome to Ho Teaching Hospital
-                                        </h1>
-                                        <p class="text-lg mb-6 max-w-lg">
-                                            Save a Life, Save the World.
-                                        </p>
-                                        <button
-                                            class="cursor-pointer rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90 transition-colors">
-                                            <a href="about.html">Learn More</a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img
-                                    alt
-                                    class="absolute inset-0 h-full w-full object-cover"
-                                    src="./assets/images/FB16.jpg" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
-                                <div
-                                    class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
-                                    <div class="container mx-auto">
-                                        <h1
-                                            class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
-                                            Compassionate, Expert Care
-                                        </h1>
-                                        <p class="text-lg mb-6 max-w-lg">
-                                            Our dedicated team is here for you
-                                            every step of the way.
-                                        </p>
-                                        <button
-                                            class="cursor-pointer rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90 transition-colors">
-                                            <a href="about.html#team"> Meet Our
-                                                Team</a>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img
-                                    alt
-                                    class="absolute inset-0 h-full w-full object-cover"
-                                    src="./assets/images/FB15.jpg" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
-                                <div
-                                    class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
-                                    <div class="container mx-auto">
-                                        <h1
-                                            class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
-                                            A Community of Wellness
-                                        </h1>
-                                        <p class="text-lg mb-6 max-w-lg">
-                                            Your health and well-being are our
-                                            highest priorities.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img
-                                    alt
-                                    class="absolute inset-0 h-full w-full object-cover"
-                                    src="./assets/images/FB2.jpg" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
-                                <div
-                                    class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
-                                    <div class="container mx-auto">
-                                        <h1
-                                            class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
-                                            Specialized Pediatric Care
-                                        </h1>
-                                        <p class="text-lg mb-6 max-w-lg">
-                                            Gentle, specialized care for our
-                                            youngest patients.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full flex-shrink-0 relative">
-                                <img
-                                    alt
-                                    class="absolute inset-0 h-full w-full object-cover"
-                                    src="./assets/images/FB8.jpg" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/10"></div>
-                                <div
-                                    class="relative h-full flex flex-col justify-end text-white p-8 md:p-16">
-                                    <div class="container mx-auto">
-                                        <h1
-                                            class="text-4xl md:text-6xl font-black mb-4 max-w-2xl leading-tight">
-                                            Your Partner in Health
-                                        </h1>
-                                        <p class="text-lg mb-6 max-w-lg">
-                                            Serving our community with
-                                            dedication and excellence.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="absolute bottom-6 left-1/2 -translate-x-1/2 flex justify-center gap-2"
-                            data-carousel-dots>
-                            <button
-                                class="size-2 rounded-full bg-white cursor-pointer"></button>
-                            <button
-                                class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
-                            <button
-                                class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
-                            <button
-                                class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
-                            <button
-                                class="size-2 rounded-full bg-white opacity-50 cursor-pointer"></button>
-                        </div>
-                        <button
-                            class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/50 transition-colors z-10"
-                            data-carousel-prev>
-                            <span
-                                class="material-symbols-outlined">arrow_back_ios_new</span>
-                        </button>
-                        <button
-                            class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/50 transition-colors z-10"
-                            data-carousel-next>
-                            <span
-                                class="material-symbols-outlined">arrow_forward_ios</span>
-                        </button>
-                    </section>
-                    <!--End of Banner/ Carousel Section-->
-
-                    <!--Start of How Can We Help You Section -->
-                    <section
-                        class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
-                        <div class="container mx-auto px-4">
-                            <h2
-                                class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
-                                How Can We Help You?
-                            </h2>
+                <!--Start of How Can We Help You Section -->
+                <section class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
+                    <div class="container mx-auto px-4">
+                        <h2 class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
+                            How Can We Help You?
+                        </h2>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
                             <div
-                                class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">emergency</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">
-                                            Emergency Care
-                                        </h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            24/7 critical care
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">pregnant_woman</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">Maternity</h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            Mother and child care
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">cardiology</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">
-                                            Cardiology
-                                        </h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            Expert heart care
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">science</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">
-                                            Lab Services
-                                        </h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            Accurate diagnostics
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">stethoscope_arrow</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">
-                                            Surgical Unit
-                                        </h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            Advanced procedures
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
-                                    <span
-                                        class="material-symbols-outlined mx-auto text-4xl text-primary">medication</span>
-                                    <div class="flex flex-col gap-1">
-                                        <h3
-                                            class="text-base font-bold leading-tight">Pharmacy</h3>
-                                        <p
-                                            class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
-                                            Prescriptions and advice
-                                        </p>
-                                    </div>
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span class="material-symbols-outlined mx-auto text-4xl text-primary">emergency</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">
+                                        Emergency Care
+                                    </h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        24/7 critical care
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <!--End of How Can We Help You Section -->
-
-                    <!--Start of News and Event Section -->
-                    <section
-                        class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
-                        <div class="container mx-auto px-4">
-                            <h2
-                                class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
-                                News &amp; Events
-                            </h2>
                             <div
-                                class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                                <div
-                                    class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
-                                    <img
-                                        class="h-56 w-full object-cover"
-                                        data-alt="A modern medical research laboratory with scientists working."
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-Clps64tfUUvopMEgbdwNQbMBBc1LE9633cleuK0KYD0gcFatic9wcE7NRXfu75T9FvVBKDy2oJHA0ZMyhrS9AYMeOeBjEeXQlMNEH96UEY41GaWROLRrmW83LeVdOWiQ-FCHpdnxrFuJkU45fGFyIcxEki5bOGpBrB3pjOWf_KqlV5zgm3gKjLYmtIvOpWZPIS1me1AceKUBlAzzNETMRtkJP7dkU2AYsWECR_rONYG07sJCRZPgO-KlTNcGTrmLlqO43FbcE0" />
-                                    <div class="flex flex-grow flex-col p-6">
-                                        <p
-                                            class="mb-2 text-sm text-muted-light dark:text-muted-dark">
-                                            May 26, 2025
-                                        </p>
-                                        <h3
-                                            class="mb-3 text-lg font-bold leading-tight">
-                                            New Research Wing Unveiled
-                                        </h3>
-                                        <p
-                                            class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
-                                            Our new state-of-the-art research
-                                            facility is now open,
-                                            paving the way for groundbreaking
-                                            medical discoveries.
-                                        </p>
-                                        <a
-                                            class="mt-4 font-bold text-primary hover:underline"
-                                            href="#">Read More →</a>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
-                                    <img
-                                        class="h-56 w-full object-cover"
-                                        data-alt="People of all ages participating in a community health fair outdoors."
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
-                                    <div class="flex flex-grow flex-col p-6">
-                                        <p
-                                            class="mb-2 text-sm text-muted-light dark:text-muted-dark">
-                                            Oct 15, 2025
-                                        </p>
-                                        <h3
-                                            class="mb-3 text-lg font-bold leading-tight">
-                                            Community Health Fair Success
-                                        </h3>
-                                        <p
-                                            class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
-                                            We were thrilled to welcome over 500
-                                            community members for
-                                            a day of free health screenings and
-                                            wellness education.
-                                        </p>
-                                        <a
-                                            class="mt-4 font-bold text-primary hover:underline"
-                                            href="#">Read More →</a>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
-                                    <img
-                                        class="h-56 w-full object-cover"
-                                        data-alt="People of all ages participating in a community health fair outdoors."
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
-                                    <div class="flex flex-grow flex-col p-6">
-                                        <p
-                                            class="mb-2 text-sm text-muted-light dark:text-muted-dark">
-                                            Upcoming Event
-                                        </p>
-                                        <h3
-                                            class="mb-3 text-lg font-bold leading-tight">
-                                            Free Seminar: Healthy Heart
-                                        </h3>
-                                        <p
-                                            class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
-                                            Join Dr. Edem Ame on November 5th to
-                                            learn about
-                                            preventing heart disease and
-                                            maintaining cardiovascular
-                                            health.
-                                        </p>
-                                        <a
-                                            class="mt-4 font-bold text-primary hover:underline"
-                                            href="#">Read More →</a>
-                                    </div>
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span
+                                    class="material-symbols-outlined mx-auto text-4xl text-primary">pregnant_woman</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">Maternity</h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        Mother and child care
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <!--End of News and Event Section -->
-
-                    <!--Start of What Our Patients Say Section -->
-                    <section
-                        class="px-4 md:px-10 lg:px-20 py-10 md:py-20 bg-white dark:bg-background-dark">
-                        <div class="mx-auto max-w-7xl">
-                            <h2
-                                class="text-3xl font-bold leading-tight tracking-tight text-center mb-12">
-                                What Our Patients Say
-                            </h2>
                             <div
-                                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                <div
-                                    class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
-                                    <p
-                                        class="italic text-gray-dark/80 dark:text-gray-light/80">
-                                        "The staff at Ho Teaching Hospital were
-                                        incredibly attentive
-                                        and caring. I felt safe and well-cared
-                                        for throughout my
-                                        entire stay. I can't thank them enough."
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span class="material-symbols-outlined mx-auto text-4xl text-primary">cardiology</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">
+                                        Cardiology
+                                    </h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        Expert heart care
                                     </p>
-                                    <div class="flex items-center gap-4 mt-2">
-                                        <img
-                                            class="size-12 rounded-full object-cover"
-                                            data-alt="Portrait of Emil Yawson"
-                                            src="https://shorturl.at/YSNLd" />
-                                        <div>
-                                            <p class="font-bold">Emil Yawson</p>
-                                            <p
-                                                class="text-sm text-gray-dark/60 dark:text-gray-light/60">
-                                                Cardiology Patient
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div
-                                    class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
-                                    <p
-                                        class="italic text-gray-dark/80 dark:text-gray-light/80">
-                                        "My experience with the maternity ward
-                                        was exceptional. The
-                                        nurses were angels, and the facility was
-                                        top-notch. Highly
-                                        recommend to any expecting mother."
+                            </div>
+                            <div
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span class="material-symbols-outlined mx-auto text-4xl text-primary">science</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">
+                                        Lab Services
+                                    </h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        Accurate diagnostics
                                     </p>
-                                    <div class="flex items-center gap-4 mt-2">
-                                        <img
-                                            class="size-12 rounded-full object-cover"
-                                            data-alt="Portrait of Jane Ofori"
-                                            src="https://shorturl.at/hyeuh" />
-                                        <div>
-                                            <p class="font-bold">Jane Ofori</p>
-                                            <p
-                                                class="text-sm text-gray-dark/60 dark:text-gray-light/60">
-                                                Maternity Patient
-                                            </p>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div
-                                    class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
-                                    <p
-                                        class="italic text-gray-dark/80 dark:text-gray-light/80">
-                                        "The orthopedic surgeon did a fantastic
-                                        job on my knee. The
-                                        recovery process was smooth thanks to
-                                        the amazing physical
-                                        therapy team at Ho Teaching Hospital."
+                            </div>
+                            <div
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span
+                                    class="material-symbols-outlined mx-auto text-4xl text-primary">stethoscope_arrow</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">
+                                        Surgical Unit
+                                    </h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        Advanced procedures
                                     </p>
-                                    <div class="flex items-center gap-4 mt-2">
-                                        <img
-                                            class="size-12 rounded-full object-cover"
-                                            data-alt="Portrait of Samuel Tagbovi"
-                                            src="https://shorturl.at/Z6T1h" />
-                                        <div>
-                                            <p class="font-bold">Samuel
-                                                Tagbovi</p>
-                                            <p
-                                                class="text-sm text-gray-dark/60 dark:text-gray-light/60">
-                                                Orthopedics Patient
-                                            </p>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-1 flex-col gap-4 rounded-xl border border-transparent bg-background-light p-6 text-center transition-all hover:border-primary/30 hover:shadow-lg dark:bg-background-dark">
+                                <span class="material-symbols-outlined mx-auto text-4xl text-primary">medication</span>
+                                <div class="flex flex-col gap-1">
+                                    <h3 class="text-base font-bold leading-tight">Pharmacy</h3>
+                                    <p class="text-sm font-normal leading-normal text-muted-light dark:text-muted-dark">
+                                        Prescriptions and advice
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <!--End of What Our Patients Say Section -->
-                </main>
-                <!--Start of Footer -->
-                <footer class="bg-section-dark text-text-light">
-                    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            <div>
-                                <h3
-                                    class="font-bold text-lg mb-4 text-primary1">
-                                    Ho Teaching Hospital
-                                </h3>
-                                <p class="text-sm text-gray-300">
-                                    Ho - Denu Road / Ho - Trafalga<br />Ho Volta
-                                    Region, Ghana
+                    </div>
+                </section>
+                <!--End of How Can We Help You Section -->
+
+                <!--Start of News and Event Section -->
+                <section class="py-16 sm:py-24 bg-border-light dark:bg-border-dark/20">
+                    <div class="container mx-auto px-4">
+                        <h2 class="px-4 pb-8 pt-5 text-center text-3xl font-bold tracking-tight">
+                            News &amp; Events
+                        </h2>
+                        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                            <div
+                                class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                                <img class="h-56 w-full object-cover"
+                                    data-alt="A modern medical research laboratory with scientists working."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-Clps64tfUUvopMEgbdwNQbMBBc1LE9633cleuK0KYD0gcFatic9wcE7NRXfu75T9FvVBKDy2oJHA0ZMyhrS9AYMeOeBjEeXQlMNEH96UEY41GaWROLRrmW83LeVdOWiQ-FCHpdnxrFuJkU45fGFyIcxEki5bOGpBrB3pjOWf_KqlV5zgm3gKjLYmtIvOpWZPIS1me1AceKUBlAzzNETMRtkJP7dkU2AYsWECR_rONYG07sJCRZPgO-KlTNcGTrmLlqO43FbcE0" />
+                                <div class="flex flex-grow flex-col p-6">
+                                    <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                        May 26, 2025
+                                    </p>
+                                    <h3 class="mb-3 text-lg font-bold leading-tight">
+                                        New Research Wing Unveiled
+                                    </h3>
+                                    <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                        Our new state-of-the-art research
+                                        facility is now open,
+                                        paving the way for groundbreaking
+                                        medical discoveries.
+                                    </p>
+                                    <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                                <img class="h-56 w-full object-cover"
+                                    data-alt="People of all ages participating in a community health fair outdoors."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
+                                <div class="flex flex-grow flex-col p-6">
+                                    <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                        Oct 15, 2025
+                                    </p>
+                                    <h3 class="mb-3 text-lg font-bold leading-tight">
+                                        Community Health Fair Success
+                                    </h3>
+                                    <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                        We were thrilled to welcome over 500
+                                        community members for
+                                        a day of free health screenings and
+                                        wellness education.
+                                    </p>
+                                    <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-col overflow-hidden rounded-xl border border-border-light bg-background-light dark:border-border-dark dark:bg-background-dark/50">
+                                <img class="h-56 w-full object-cover"
+                                    data-alt="People of all ages participating in a community health fair outdoors."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GlA5upZ6kOArjMSXHHRzgYiH3neR8CNwtITpESBnAyCii66uFuuJTL4uBRi5ryYX_hssu-ghdr5ZMD1F2e4koQSEq9icn7t6cz9m4wAmQpl18keJrBYN56gjrCAB7w6AKs5JhAxcIonXhzGaHB-fJqoWWbefscaTKNBFR0mVn2jNLmLOf8Ehp6Us9GGvUkH0gJ1_SDZ3glKDy3YaDmkBS06C8j8hanTFQGyPXWSM8rLhD8q-apGgONbHqJK2ah4MdSJk5m4FQ4" />
+                                <div class="flex flex-grow flex-col p-6">
+                                    <p class="mb-2 text-sm text-muted-light dark:text-muted-dark">
+                                        Upcoming Event
+                                    </p>
+                                    <h3 class="mb-3 text-lg font-bold leading-tight">
+                                        Free Seminar: Healthy Heart
+                                    </h3>
+                                    <p class="flex-grow text-sm leading-relaxed text-muted-light dark:text-muted-dark">
+                                        Join Dr. Edem Ame on November 5th to
+                                        learn about
+                                        preventing heart disease and
+                                        maintaining cardiovascular
+                                        health.
+                                    </p>
+                                    <a class="mt-4 font-bold text-primary hover:underline" href="#">Read More →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--End of News and Event Section -->
+
+                <!--Start of What Our Patients Say Section -->
+                <section class="px-4 md:px-10 lg:px-20 py-10 md:py-20 bg-white dark:bg-background-dark">
+                    <div class="mx-auto max-w-7xl">
+                        <h2 class="text-3xl font-bold leading-tight tracking-tight text-center mb-12">
+                            What Our Patients Say
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                                    "The staff at Ho Teaching Hospital were
+                                    incredibly attentive
+                                    and caring. I felt safe and well-cared
+                                    for throughout my
+                                    entire stay. I can't thank them enough."
                                 </p>
-                                <p class="text-sm text-gray-300 mt-2">P.O. BOX
-                                    MA 374</p>
+                                <div class="flex items-center gap-4 mt-2">
+                                    <img class="size-12 rounded-full object-cover" data-alt="Portrait of Emil Yawson"
+                                        src="https://shorturl.at/YSNLd" />
+                                    <div>
+                                        <p class="font-bold">Emil Yawson</p>
+                                        <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                                            Cardiology Patient
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h3
-                                    class="font-bold text-lg mb-4 text-white">Quick
-                                    Links</h3>
-                                <ul class="space-y-2 text-sm">
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="index.html">Home</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">Our Services</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">Medical Tourism</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="about.html">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="contact.html">Contact Us</a>
-                                    </li>
-                                </ul>
+                            <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                                    "My experience with the maternity ward
+                                    was exceptional. The
+                                    nurses were angels, and the facility was
+                                    top-notch. Highly
+                                    recommend to any expecting mother."
+                                </p>
+                                <div class="flex items-center gap-4 mt-2">
+                                    <img class="size-12 rounded-full object-cover" data-alt="Portrait of Jane Ofori"
+                                        src="https://shorturl.at/hyeuh" />
+                                    <div>
+                                        <p class="font-bold">Jane Ofori</p>
+                                        <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                                            Maternity Patient
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h3
-                                    class="font-bold text-lg mb-4 text-white">About
-                                    Us</h3>
-                                <ul class="space-y-2 text-sm">
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">Mission &amp; Values</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">Leadership</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">Careers</a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            class="text-gray-300 hover:text-white"
-                                            href="#">News</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3
-                                    class="font-bold text-lg mb-4 text-white">Follow
-                                    Us</h3>
-                                <div class="flex space-x-4">
-                                    <a
-                                        aria-label="Facebook"
-                                        class="text-gray-300 hover:text-white"
-                                        href="#">
-                                        <svg
-                                            class="w-6 h-6"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path
-                                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                                        </svg>
-                                    </a>
-                                    <a
-                                        aria-label="Twitter"
-                                        class="text-gray-300 hover:text-white"
-                                        href="#">
-                                        <svg
-                                            class="w-6 h-6"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path
-                                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.226-2.068.077.621 1.954 2.422 3.376 4.566 3.415-1.773 1.39-4.012 2.218-6.444 2.218-.42 0-.835-.025-1.243-.073 2.289 1.467 5.013 2.32 7.941 2.32 9.423 0 14.587-7.823 14.587-14.588 0-.221 0-.442-.014-.662a10.437 10.437 0 002.574-2.673z"></path>
-                                        </svg>
-                                    </a>
-                                    <a
-                                        aria-label="LinkedIn"
-                                        class="text-gray-300 hover:text-white"
-                                        href="#">
-                                        <svg
-                                            class="w-6 h-6"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path
-                                                d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"></path>
-                                        </svg>
-                                    </a>
+                            <div class="flex flex-col gap-4 rounded-xl bg-gray-light dark:bg-gray-dark p-8">
+                                <p class="italic text-gray-dark/80 dark:text-gray-light/80">
+                                    "The orthopedic surgeon did a fantastic
+                                    job on my knee. The
+                                    recovery process was smooth thanks to
+                                    the amazing physical
+                                    therapy team at Ho Teaching Hospital."
+                                </p>
+                                <div class="flex items-center gap-4 mt-2">
+                                    <img class="size-12 rounded-full object-cover" data-alt="Portrait of Samuel Tagbovi"
+                                        src="https://shorturl.at/Z6T1h" />
+                                    <div>
+                                        <p class="font-bold">Samuel
+                                            Tagbovi</p>
+                                        <p class="text-sm text-gray-dark/60 dark:text-gray-light/60">
+                                            Orthopedics Patient
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
-                            <p>© 2025 Ho Teaching Hospital. All rights
-                                reserved.</p>
+                    </div>
+                </section>
+                <!--End of What Our Patients Say Section -->
+            </main>
+            <!--Start of Footer -->
+            <footer class="bg-section-dark text-text-light">
+                <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-primary1">
+                                Ho Teaching Hospital
+                            </h3>
+                            <p class="text-sm text-gray-300">
+                                Ho - Denu Road / Ho - Trafalga<br />Ho Volta
+                                Region, Ghana
+                            </p>
+                            <p class="text-sm text-gray-300 mt-2">P.O. BOX
+                                MA 374</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-white">Quick
+                                Links</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">Our Services</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">Medical Tourism</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="about.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-white">About
+                                Us</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">Mission &amp; Values</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">Leadership</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">Careers</a>
+                                </li>
+                                <li>
+                                    <a class="text-gray-300 hover:text-white" href="#">News</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 text-white">Follow
+                                Us</h3>
+                            <div class="flex space-x-4">
+                                <a aria-label="Facebook" class="text-gray-300 hover:text-white" href="#">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a aria-label="Twitter" class="text-gray-300 hover:text-white" href="#">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.212 3.793 4.649-.65.177-1.354.226-2.068.077.621 1.954 2.422 3.376 4.566 3.415-1.773 1.39-4.012 2.218-6.444 2.218-.42 0-.835-.025-1.243-.073 2.289 1.467 5.013 2.32 7.941 2.32 9.423 0 14.587-7.823 14.587-14.588 0-.221 0-.442-.014-.662a10.437 10.437 0 002.574-2.673z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a aria-label="LinkedIn" class="text-gray-300 hover:text-white" href="#">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </footer>
-                <!--End of Footer -->
-            </div>
+                    <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                        <p>© 2025 Ho Teaching Hospital. All rights
+                            reserved.</p>
+                    </div>
+                </div>
+            </footer>
+            <!--End of Footer -->
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

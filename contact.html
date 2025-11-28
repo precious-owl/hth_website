@@ -45,6 +45,8 @@
                         "section-dark": "#1a2c20",
                         "text-muted-light": "#61896f",
                         "text-muted-dark": "#a2b5a9",
+                        "card-light": "#ffffff",
+                        "card-dark": "#008100"
                     },
                     fontFamily: {
                         display: ["Lexend", "sans-serif"],
@@ -138,92 +140,126 @@
         <div class="relative flex min-h-screen w-full flex-col">
             <div class="layout-container flex h-full grow flex-col">
                 <!--Start of Header/ Navbar -->
-                <header
-                    class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
-                    <div class="container mx-auto px-4">
-                        <div
-                            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark py-3">
-                            <div
-                                class="flex items-center gap-4 text-text-light dark:text-text-dark">
-                                <div class="text-primary size-8">
-                                    <a href="index.html"><img
-                                            src="./assets/images/hthlogo.png"
-                                            alt /></a>
-                                </div>
-                                <h2
-                                    class="text-xl font-bold leading-tight tracking-tight">
-                                    <a href="index.html">Ho Teaching
-                                        Hospital</a>
-                                </h2>
+                <header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
+                <div class="container mx-auto px-4">
+                    <div
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark py-3">
+                        <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+                            <div class="text-primary size-8">
+                                <a href="index.html"><img src="./assets/images/hthlogo.png" alt /></a>
                             </div>
-                            <div
-                                class="hidden lg:flex flex-1 justify-end gap-8">
-                                <nav class="flex items-center gap-9">
-                                    <a
-                                        class="font-medium text-sm leading-normal"
-                                        href="index.html">Home</a>
+                            <h2 class="text-xl font-bold leading-tight tracking-tight">
+                                <a href="index.html">Ho Teaching
+                                    Hospital</a>
+                            </h2>
+                        </div>
+                        <div class="hidden lg:flex flex-1 justify-end gap-8">
+                            <nav class="flex items-center gap-9">
+                                <a class="font-medium font-bold text-sm text-primary leading-normal"
+                                    href="index.html">Home</a>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="#">Services</a>
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="#">Services</a>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="#">Medical Tourism</a>
+                                <div class="relative group">
+                                    <button
+                                        class="flex items-center gap-1 text-sm font-medium hover:text-primary dark:hover:text-primary">
+                                        Media
+                                        <span
+                                            class="material-symbols-outlined text-base transition-transform group-hover:rotate-180">expand_more</span>
+                                    </button>
+                                    <div
+                                        class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 origin-top-right rounded-lg bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200">
+                                        <div class="py-1">
+                                            <a class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
+                                                href="#">News & Updates</a>
+                                            <a class="block px-4 py-2 text-sm text-medium hover:text-primary transition-colors"
+                                                href="#">Medical Tourism</a>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                                        href="about.html">About Us</a>
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="about.html">About Us</a>
 
-                                    <a
-                                        class="text-sm font-medium leading-normal font-bold text-primary hover:text-primary transition-colors"
-                                        href="contact.html">Contact Us</a>
-                                </nav>
+                                <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
+                                    href="contact.html">Contact Us</a>
+                            </nav>
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                <span class="truncate">Make an
+                                    Appointment</span>
+                            </button>
+                        </div>
+                        <button class="lg:hidden p-2 -mr-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                            id="menu-button">
+                            <span class="material-symbols-outlined" id="menu-icon">menu</span>
+                            <span class="material-symbols-outlined hidden" id="close-icon">close</span>
+                        </button>
+                    </div>
+                    <div class="lg:hidden hidden" id="mobile-menu">
+                        <div
+                            class="absolute top-full left-0 w-full bg-white dark:bg-background-dark shadow-lg border-t border-border-light dark:border-border-dark">
+                            <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
+                                <a class="text-base text-primary font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="index.html">Home</a>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="#">Services</a>
+
+                                <div class="relative">
+
+                                    <!-- Trigger button (mobile click using peer) -->
+                                    <button
+                                        class="peer flex gap-1 text-base font-medium hover:text-primary dark:hover:text-primary md:group px-2 py-2">
+                                        Media
+                                        <span
+                                            class="material-symbols-outlined text-base transition-transform md:group-hover:rotate-180 peer-focus:rotate-180">
+                                            expand_more
+                                        </span>
+                                    </button>
+
+                                    <!-- Dropdown menu -->
+                                    <div class="
+            absolute md:top-full left-0 md:left-1/2 md:-translate-x-1/2 
+            mt-2 w-full md:w-56 
+            origin-top-right rounded-lg 
+            bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 
+            
+            /* Desktop hover behavior */
+            opacity-0 invisible md:group-hover:opacity-100 md:group-hover:visible 
+
+            /* Mobile click behavior */
+            peer-focus:opacity-100 peer-focus:visible
+
+            transition-all duration-200
+        ">
+                                        <div class="py-1">
+                                            <a class="block px-4 py-3 text-base md:text-sm hover:text-primary transition-colors"
+                                                href="#">
+                                                News & Updates
+                                            </a>
+                                            <a class="block px-4 py-3 text-base md:text-sm hover:text-primary transition-colors"
+                                                href="#">
+                                                Medical Tourism
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="about.html">About Us</a>
+                                <a class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
+                                    href="contact.html">Contact Us</a>
                                 <button
-                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                    class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 mt-2 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
                                     <span class="truncate">Make an
                                         Appointment</span>
                                 </button>
                             </div>
-                            <button
-                                class="lg:hidden p-2 -mr-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-                                id="menu-button">
-                                <span class="material-symbols-outlined"
-                                    id="menu-icon">menu</span>
-                                <span class="material-symbols-outlined hidden"
-                                    id="close-icon">close</span>
-                            </button>
-                        </div>
-                        <div class="lg:hidden hidden" id="mobile-menu">
-                            <div
-                                class="absolute top-full left-0 w-full bg-white dark:bg-background-dark shadow-lg border-t border-border-light dark:border-border-dark">
-                                <div
-                                    class="container mx-auto px-4 py-4 flex flex-col gap-4">
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="index.html">Home</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="#">Services</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="#">Medical Tourism</a>
-                                    <a
-                                        class="text-base font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="about.html">About Us</a>
-                                    <a
-                                        class="text-base text-primary font-medium hover:text-primary transition-colors px-2 py-2"
-                                        href="contact.html">Contact Us</a>
-                                    <button
-                                        class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 mt-2 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-                                        <span class="truncate">Make an
-                                            Appointment</span>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                </header>
+                </div>
+            </header>
                 <!--End of Header/ Navbar -->
 
                 <main
